@@ -1,4 +1,7 @@
-from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
+from typing import Annotated
+
+from fastapi import Depends
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from trade.config import settings
 
@@ -9,3 +12,6 @@ SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
 async def get_session():
     async with SessionLocal() as session:
         yield session
+
+
+SessionDep = Annotated[AsyncSession, Depends(get_session)]

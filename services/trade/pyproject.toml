@@ -2,7 +2,6 @@
 name = "trade"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 authors = [
     { name = "박재민", email = "dhkdhkdhkdn@gmail.com" }
 ]

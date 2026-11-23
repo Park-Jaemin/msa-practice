@@ -1,15 +1,13 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Header
+from fastapi import APIRouter, Header
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from trade.db import get_session
+from trade.db import SessionDep
 from trade.listings.schemas import CreateListing, ListingResponse
 from trade.models import Listing, ListingStatus
 
 router = APIRouter(prefix="/listings", tags=["listings"])
-SessionDep = Annotated[AsyncSession, Depends(get_session)]
 
 
 @router.get("", response_model=list[ListingResponse])
