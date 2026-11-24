@@ -18,4 +18,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 EXPOSE 8000
 
-CMD ["fastapi", "run", "src/trade/main.py", "--port", "8000"]
+CMD ["fastapi", "run", "--port", "8000"]
